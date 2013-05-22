@@ -1,3 +1,3 @@
-module Oauth1
+module OAuth1
   VERSION = "0.0.1"
 end
