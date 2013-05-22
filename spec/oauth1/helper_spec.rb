@@ -59,6 +59,7 @@ describe OAuth1::Helper do
     it "returns the url with the params for auth" do
       full_url.should match(/oauth_consumer_key=#{consumer_key}/)
       full_url.should match(/oauth_signature_method=HMAC-SHA1/)
+      full_url.should match(/oauth_signature=/)
       full_url.should match(/my_special_param/)
     end
   end
