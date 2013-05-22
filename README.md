@@ -1,6 +1,6 @@
-# Oauth1
+# OAuth1
 
-TODO: Write a gem description
+Simple OAuth 1.0 helper. Take a look at the specs on how to use it.
 
 ## Installation
 
@@ -15,10 +15,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install oauth1
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
