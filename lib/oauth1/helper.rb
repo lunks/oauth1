@@ -3,7 +3,7 @@ require 'addressable/uri'
 require 'cgi'
 require 'base64'
 require 'openssl'
-
+require 'securerandom'
 module OAuth1
   class Helper
     attr_reader :url_params
