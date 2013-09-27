@@ -6,7 +6,7 @@ require 'openssl'
 require 'securerandom'
 module OAuth1
   class Helper
-    attr_reader :url_params,:consumer_secret, :key, :token_secret
+    attr_reader :url_params
 
     def initialize(method, url, params, options)
       options.reverse_update({
