@@ -6,15 +6,15 @@ require 'openssl'
 require 'securerandom'
 module OAuth1
   class Helper
-    attr_reader :url_params
+    attr_reader :url_params, :url_params, :url
 
     def initialize(method, url, params, options)
       options.reverse_update({
         version: "1.0",
         signature_method: 'HMAC-SHA1',
         timestamp: Time.now.to_i.to_s,
-        nonce: SecureRandom.uuid,
-        token: ""
+        nonce: SecureRandom.uuid
+        # token: ""
       })
 
       @consumer_secret = options.delete(:consumer_secret)
@@ -25,6 +25,7 @@ module OAuth1
     end
 
     def signature_base
+      @url_params.delete :oauth_signature
       [@method, @url.to_s, url_with_params.query].map{|v| CGI.escape(v) }.join('&')
     end
 
