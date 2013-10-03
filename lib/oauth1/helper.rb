@@ -14,7 +14,6 @@ module OAuth1
         signature_method: 'HMAC-SHA1',
         timestamp: Time.now.to_i.to_s,
         nonce: SecureRandom.uuid
-        # token: ""
       })
       @consumer_secret = options.delete(:consumer_secret)
       @token_secret = options.delete(:token_secret)
