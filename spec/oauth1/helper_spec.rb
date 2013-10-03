@@ -23,14 +23,14 @@ describe OAuth1::Helper do
     end
 
     it "has oauth_token as an empty string" do
-      url_params[:oauth_token].should eq("")
+      url_params[:oauth_token].should eq(nil)
     end
   end
 
   describe "#url_params" do
     let(:url_params) { helper.url_params }
     it "returns an array with the options and the params" do
-      url_params.should have(7).params
+      url_params.should have(6).params
     end
 
     it "has the user-specified params" do
