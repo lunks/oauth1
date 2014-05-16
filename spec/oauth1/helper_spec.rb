@@ -23,12 +23,12 @@ describe OAuth1::Helper do
       expect(url_params.keys).to_not include('oauth_consumer_secret')
     end
 
-    it 'has oauth_token as an empty string' do
-      expect(url_params[:oauth_token]).to be_empty
+    it 'does not have oauth_token as a param' do
+      expect(url_params[:oauth_token]).to be_nil
     end
 
     it 'returns an array with the options and the params' do
-      expect(url_params.keys).to have(7).items
+      expect(url_params.keys).to have(6).items
     end
 
     it 'has any user specified params' do
