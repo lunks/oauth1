@@ -24,6 +24,7 @@ module OAuth1
     end
 
     def signature_base
+      @url_params.delete(:oauth_signature)
       [@method, @url.to_s, url_with_params.query].map{|v| CGI.escape(v) }.join('&')
     end
 
