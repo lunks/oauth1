@@ -27,9 +27,6 @@ module OAuth1
       [@method, @url.to_s, url_with_params.query].map{|v| CGI.escape(v) }.join('&')
     end
 
-    def append_signature_to_params
-      @url_params[:oauth_signature] = hmac_sha1_signature("#{CGI.escape(@consumer_secret)}&", signature_base)
-    end
 
     def full_url
       append_signature_to_params
@@ -39,6 +36,10 @@ module OAuth1
     private
       def url_with_params
         @url.dup.tap{|url| url.query_values = url_params}
+      end
+
+      def append_signature_to_params
+        @url_params[:oauth_signature] = hmac_sha1_signature("#{CGI.escape(@consumer_secret)}&", signature_base)
       end
 
       def prepend_oauth_to_key(options)
