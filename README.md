@@ -42,7 +42,3 @@ After that, all you need to do is to redirect the user to `oauth.full_url`.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-## Mantainers
-
- - [Israel Ribeiro](https://github.com/israveri)
