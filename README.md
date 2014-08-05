@@ -2,6 +2,8 @@
 
 Simple helper that helps you build the url needed to authenticate into a service using OAuth 1.0.
 
+[![Build Status](https://travis-ci.org/lunks/oauth1.svg?branch=master)](https://travis-ci.org/lunks/oauth1)
+
 ## Installation
 
 Add this line to your application's Gemfile:
