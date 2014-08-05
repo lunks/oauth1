@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/lunks/oauth1.svg?branch=master)](https://travis-ci.org/lunks/oauth1)
+[![Dependency Status](https://gemnasium.com/lunks/oauth1.svg)](https://gemnasium.com/lunks/oauth1)
+
 
 # OAuth1
 
