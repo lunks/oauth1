@@ -53,7 +53,7 @@ module OAuth1
       end
 
       def hmac_sha1_signature(key, signature_string)
-        digest = OpenSSL::Digest::Digest.new('sha1')
+        digest = OpenSSL::Digest.new('sha1')
         hmac = OpenSSL::HMAC.digest(digest, key, signature_string)
         Base64.encode64(hmac).chomp.gsub(/\n/, '')
       end
