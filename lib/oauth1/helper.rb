@@ -12,7 +12,7 @@ module OAuth1
     def initialize(method, url, params, options)
       options.reverse_update({
         version: "1.0",
-        signature_method: 'HMAC-SHA1',
+        signature_method: options.delete(:sign_method),
         timestamp: Time.now.to_i.to_s,
         nonce: SecureRandom.uuid
       })
