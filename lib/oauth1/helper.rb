@@ -12,7 +12,7 @@ module OAuth1
     def initialize(method, url, params, options)
       options.reverse_update({
         version: "1.0",
-        signature_method: 'HMAC-SHA1',
+        signature_method: options.delete(:sign_method),
         timestamp: Time.now.to_i.to_s,
         nonce: SecureRandom.uuid
       })
@@ -30,8 +30,8 @@ module OAuth1
     end
 
 
-    def full_url
-      append_signature_to_params
+    def full_url(sign_method)
+      append_signature_to_params(sign_method)
       url_with_params.to_s
     end
 
@@ -44,16 +44,16 @@ module OAuth1
         @url.dup.tap{|url| url.query_values = url_params}
       end
 
-      def append_signature_to_params
-        @url_params[:oauth_signature] = hmac_sha1_signature(key, signature_base)
+      def append_signature_to_params(sign_method)
+        @url_params[:oauth_signature] = hmac_signature(key, signature_base, sign_method)
       end
 
       def prepend_oauth_to_key(options)
         Hash[options.map{|key, value| ["oauth_#{key}".to_sym, value]}]
       end
 
-      def hmac_sha1_signature(key, signature_string)
-        digest = OpenSSL::Digest.new('sha1')
+      def hmac_signature(key, signature_string, sign_method)
+        digest = OpenSSL::Digest.new(sign_method)
         hmac = OpenSSL::HMAC.digest(digest, key, signature_string)
         Base64.encode64(hmac).chomp.gsub(/\n/, '')
       end
