@@ -25,7 +25,7 @@ Or install it yourself as:
     # Setup data
     method = :get
     domain_url = 'http://some.app.com/auth/'
-    user_date = { uid: user_email + encrypted_password }
+    user_data = { uid: user_email + encrypted_password }
     oauth_config = { consumer_key: ENV['OAUTH_KEY'], consumer_secret: ENV['OAUTH_SECRET'] }
 
     # Usage
