@@ -20,7 +20,7 @@ describe OAuth1::Helper do
     end
 
     it 'does not include the consumer_secret' do
-      expect(url_params.keys).to_not include('oauth_consumer_secret')
+      expect(url_params.keys).not_to include('oauth_consumer_secret')
     end
 
     it 'does not have oauth_token as a param' do
@@ -28,7 +28,7 @@ describe OAuth1::Helper do
     end
 
     it 'returns an array with the options and the params' do
-      expect(url_params.keys).to have(6).items
+      expect(url_params.keys.size).to eq(6)
     end
 
     it 'has any user specified params' do
