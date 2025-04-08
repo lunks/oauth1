@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/lunks/oauth1.svg?branch=master)](https://travis-ci.org/lunks/oauth1)
+[![Build Status](https://github.com/lunks/oauth1/actions/workflows/ruby.yml/badge.svg?branch=master)](https://github.com/lunks/oauth1/actions)
 [![Dependency Status](https://gemnasium.com/lunks/oauth1.svg)](https://gemnasium.com/lunks/oauth1)
 [![Code Climate](https://codeclimate.com/github/lunks/oauth1/badges/gpa.svg)](https://codeclimate.com/github/lunks/oauth1)
 
