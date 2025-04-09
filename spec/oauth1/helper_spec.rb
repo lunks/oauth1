@@ -1,4 +1,4 @@
-require 'rspec/autorun'
+require 'spec_helper'
 
 describe OAuth1::Helper do
   let(:url) { 'http://example.com' }
