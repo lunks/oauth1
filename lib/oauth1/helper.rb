@@ -26,9 +26,28 @@ module OAuth1
 
     def signature_base
       @url_params.delete(:oauth_signature)
-      [@method, @url.to_s, url_with_params.query].map{|v| CGI.escape(v) }.join('&')
+
+      # Convert parameters to array of [key, value] pairs
+      pairs = @url_params.flat_map do |key, value|
+        if value.is_a?(Array)
+          # For arrays, create multiple pairs with the same key
+          value.map { |v| [key.to_s, v.to_s] }
+        else
+          [[key.to_s, value.to_s]]
+        end
+      end
+
+      # Sort first by key, then by value
+      normalized_params = pairs.sort.map { |k, v| "#{escape(k)}=#{escape(v)}" }.join('&')
+
+      # Create base string
+      [@method, escape(@url.to_s), escape(normalized_params)].join('&')
     end
 
+    # Use a single consistent escaping method
+    def escape(value)
+      CGI.escape(value.to_s).gsub('+', '%20')
+    end
 
     def full_url
       append_signature_to_params
